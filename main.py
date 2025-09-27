@@ -9,7 +9,6 @@ requests = request.get(url)
 response = requests.response
 port = input('Enter the port you wish to use for connection')
 socket.connect(url, port)
-
 if response.status_code == 200:
   while True:
     data = sock.recv(4096)
@@ -18,4 +17,15 @@ if response.status_code == 200:
     break
   print(data.decode('utf8' errors='ignore')
   sock.close()
+
+soup = BeautifulSoup(response.txt,'html parser')
+for a in soup.find_all('a', href=True):
+  links = a["href"]
+for link in links:
+  absolute_url = urljoin(url, link)
+  print(absolute_url.strip())
+
+
+
+
 
