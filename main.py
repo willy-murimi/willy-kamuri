@@ -1,6 +1,7 @@
 #!bin/python3
 import requests
 import BeautifulSoup as bs4
+import urllib3 import urljoin
 
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -24,6 +25,7 @@ for a in soup.find_all('a', href=True):
 for link in links:
   absolute_url = urljoin(url, link)
   print(absolute_url.strip())
+
 
 
 
